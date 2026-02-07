@@ -1,1 +1,0 @@
-# cv-konlyzx.github.io
