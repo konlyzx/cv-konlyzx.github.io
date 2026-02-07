@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Konlyzx — Full Stack & Performance</title>
+
+    <!-- Frameworks & Plugins -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
+                    colors: { bgDark: '#070707', primary: '#3b82f6' }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-white dark:bg-bgDark text-gray-900 dark:text-gray-100 antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Floating Nav -->
+    <nav
+        class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex px-4 py-1.5 items-center gap-5 rounded-full border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl">
+        <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-gray-400">
+            <a href="#labor" class="hover:text-primary transition">Laboral</a>
+            <a href="#edu" class="hover:text-primary transition">Académico</a>
+            <a href="#skills" class="hover:text-primary transition">Skills</a>
+            <a href="#projects" class="hover:text-primary transition">Work</a>
+        </div>
+        <button id="theme-toggle" class="p-1 border-l border-gray-200 dark:border-white/10 pl-4">
+            <svg class="w-3.5 h-3.5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <main class="max-w-2xl mx-auto px-6 py-16 lg:px-0">
+
+        <!-- Perfil Head -->
+        <header class="gsap-reveal mb-10 pt-4">
+            <div>
+                <div
+                    class="w-18 h-18 rounded-xl shadow-lg">
+                    <img src="https://i.ibb.co/xtctJbMx/images-removebg-preview.png" class="w-15 h-15 object-cover">
+                </div>
+                <h1 class="text-5xl font-bold tracking-tighter italic pt-10">Kevin Nazarit <span
+                        class="text-primary not-italic text-4xl">.</span></h1>
+            </div>
+            <p class="text-base font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">Desarrollador Web Full Stack &
+                Especialista en SEO</p>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono text-gray-500 border-t border-gray-100 dark:border-white/5 pt-6">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span>CALI, CO — DISPONIBLE REMOTO</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="mailto:konlyzxgo@gmail.com" class="underline hover:text-primary">EMAIL</a>
+                    <a href="https://linkedin.com/in/konlyzx" class="underline hover:text-primary">LINKEDIN</a>
+                    <a href="#" class="underline hover:text-primary">GITHUB</a>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Información Laboral -->
+        <section id="labor" class="gsap-reveal mb-12">
+            <h2
+                class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-6 border-b border-gray-100 dark:border-white/5 pb-2">
+                Experiencia Laboral</h2>
+            <div class="space-y-6">
+                <div
+                    class="job-item group border-l-2 border-gray-100 dark:border-white/5 pl-5 relative hover:border-primary transition-colors">
+                    <span class="text-[10px] font-bold text-primary block mb-1">AGOSTO 2024 — ACTUALIDAD</span>
+                    <h3 class="font-bold text-lg leading-none">Full Stack Developer — <span
+                            class="italic text-gray-500">Hospelia</span></h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+                        Desarrollo integral del portal inmobiliario. Implementación de dashboards para usuarios, gestión
+                        de inventario y optimización del Core Web Vitals usando <strong>Next.js</strong> y
+                        <strong>TypeScript</strong>.
+                    </p>
+                </div>
+                <div
+                    class="job-item group border-l-2 border-gray-100 dark:border-white/5 pl-5 relative hover:border-gray-500 transition-colors">
+                    <span class="text-[10px] font-bold text-gray-400 block mb-1">2023 — 2024</span>
+                    <h3 class="font-bold text-lg leading-none">Digital Marketing & SEO — <span
+                            class="italic text-gray-500">Freelance</span></h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+                        Automatización de embudos con GoHighLevel e integración de Meta API para la gestión inteligente
+                        de leads. Auditoría técnica para posicionamiento orgánico.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades & Idiomas -->
+        <section id="skills" class="gsap-reveal mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h2
+                    class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
+                    Technical Skills</h2>
+                <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded text-primary">JAVASCRIPT (ES6+)</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded text-primary">TYPESCRIPT</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">NEXT.JS</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">REACT</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">NODE.JS</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded text-green-500">MONGODB</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">GIT</span>
+                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">TAILWIND CSS</span>
+                </div>
+            </div>
+            <div>
+                <h2
+                    class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
+                    Idiomas</h2>
+                <ul class="text-xs space-y-2">
+                    <li class="flex justify-between"><span>Español</span> <span
+                            class="font-bold text-gray-400 uppercase italic text-[10px]">Nativo</span></li>
+                    <li class="flex justify-between"><span>Inglés</span> <span
+                            class="font-bold text-primary uppercase italic text-[10px]">Técnico / B1</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Información Académica -->
+        <section id="edu" class="gsap-reveal mb-12">
+            <h2
+                class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
+                Educación</h2>
+            <div class="flex flex-col md:flex-row md:items-center justify-between group">
+                <div>
+                    <h3 class="font-bold text-gray-900 dark:text-white">Tecnología en Desarrollo de Software</h3>
+                    <p class="text-sm text-gray-500 italic">En curso — Instituto Superior / Universitario</p>
+                </div>
+                <div
+                    class="text-right font-mono text-[10px] text-primary opacity-0 group-hover:opacity-100 transition-opacity uppercase">
+                    Estudiante Activo
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="gsap-reveal mb-12 cursor-pointer">
+            <h2
+                class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-6 border-b border-gray-100 dark:border-white/5 pb-2">
+                Portafolio Seleccionado</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <a href="https://cineflixx.biz" target="_blank"
+                    class="project-card group block bg-gray-50 dark:bg-white/5 rounded-2xl p-3 border border-transparent hover:border-white/10 transition-all">
+                    <img src="https://konlyzx.vercel.app/images/work/cineflixx.avif" alt="Cineflixx"
+                        class="h-32 w-full object-cover rounded-xl mb-3 grayscale group-hover:grayscale-0 transition-all">
+                    <h4 class="font-bold text-sm italic uppercase">CINEFLIXX <span
+                            class="text-gray-500 font-normal">.BIZ</span></h4>
+                </a>
+
+                <a href="https://hospelia.co" target="_blank"
+                    class="project-card group block bg-gray-50 dark:bg-white/5 rounded-2xl p-3 border border-transparent hover:border-white/10 transition-all">
+                    <img src="https://konlyzx.vercel.app/images/work/hospelia.avif" alt="Hospelia"
+                        class="h-32 w-full object-cover rounded-xl mb-3 grayscale group-hover:grayscale-0 transition-all">
+                    <h4 class="font-bold text-sm italic uppercase">HOSPELIA <span
+                            class="text-gray-500 font-normal">.CO</span></h4>
+                </a>
+            </div>
+        </section>
+
+        <footer class="gsap-reveal pt-10 border-t border-gray-100 dark:border-white/5">
+            <p class="text-[9px] font-black uppercase tracking-[0.3em] text-center opacity-30 italic">Automate or die
+                &bull; konlyzx &bull; 2026</p>
+        </footer>
+
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
