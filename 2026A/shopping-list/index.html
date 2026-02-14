@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List | ZARA Style</title>
+    <link rel="stylesheet" href="/shopping-list/css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Shopping List</h1>
+            <p id="counter">0 ARTÍCULOS</p>
+        </header>
+
+<!-- Formulario de Entrada -->
+<form id="shopForm">
+    <div class="form-row main-selection">
+        <!-- Preview de la imagen seleccionada -->
+        <div class="product-image-preview">
+            <img id="mainPreview" src="" alt="">
+        </div>
+
+        <div class="product-dropdown-container">
+            <div class="input-group">
+                <label>Producto</label>
+                <!-- Selector personalizado -->
+                <div class="custom-select" id="productDropdown">
+                    <div class="select-selected">Selecciona un artículo</div>
+                    <div class="select-items select-hide">
+                        <div data-value="Camiseta Blanca" data-img="https://tottoco.vtexassets.com/arquivos/ids/564947/RA46644-2417-B01XS_2.jpg?v=638570225954670000">Camiseta Blanca</div>
+                        <div data-value="Vaqueros Slim" data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVhkkicb6EP9lyjybf7PgrzgcPC8ZRq_Ji6Q&s">Vaqueros Slim</div>
+                        <div data-value="Jersey Lana" data-img="https://static.zara.net/photos///2023/I/0/1/p/3284/313/800/2/w/432/3284313800_1_1_1.jpg">Jersey Lana</div>
+                        <div data-value="Botas Piel" data-img="https://static.zara.net/photos///2023/I/1/1/p/2012/210/040/2/w/432/2012210040_1_1_1.jpg">Botas Piel</div>
+                    </div>
+                </div>
+                <!-- Input oculto para el valor del producto -->
+                <input type="hidden" id="itemName" required>
+            </div>
+        </div>
+
+        <div class="input-group quantity">
+            <label>Cant.</label>
+            <input type="number" id="itemQty" value="1" min="1">
+        </div>
+    </div>
+    
+    <!-- Resto del formulario... -->
+
+            <button type="submit" class="btn-add">Añadir a la cesta</button>
+        </form>
+
+        <!-- Lista de Productos -->
+        <div id="shoppingList" class="list-container">
+            <!-- Las tareas aparecerán aquí -->
+        </div>
+    </div>
+
+    <script src="/shopping-list/js/script.js"></script>
+</body>
+</html>

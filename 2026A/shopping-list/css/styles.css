@@ -1,0 +1,51 @@
+/* Específico para la Shopping List dentro de CV DARK */
+#shopping-section {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div {
+    padding: 12px 15px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s;
+}
+
+.select-items div:hover {
+    background: rgba(59, 130, 246, 0.2); /* Color Primary de tu CV */
+    color: white;
+}
+
+/* Efecto para la lista de salida */
+.item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-delete {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.btn-delete:hover {
+    opacity: 1;
+    color: #ef4444; /* Rojo suave */
+}
