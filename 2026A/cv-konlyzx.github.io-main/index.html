@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV | Konlyzx — Full Stack & Performance</title>
 
-    <!-- Frameworks & Plugins -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <link rel="stylesheet" href="/styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -21,251 +16,368 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
-                    colors: { bgDark: '#070707', primary: '#3b82f6' }
+                    colors: { bgDark: '#070707', primary: '#3b82f6', surface: '#111111' }
                 }
             }
         }
     </script>
+
+    <style>
+        .reveal { opacity: 0; transform: translateY(20px); }
+        .job-item { border-left-width: 2px; }
+        
+        /* Custom Select Styles */
+        .select-hide { display: none; }
+        .select-show { display: block; }
+        
+        /* PDF Adjustment */
+        @media print {
+            nav, .no-print, #job-form, #shopping-section, button, input { display: none !important; }
+            body { background: white; color: black; }
+            .job-item { border-left-color: #000 !important; }
+        }
+    </style>
 </head>
+<body class="bg-white dark:bg-bgDark text-gray-900 dark:text-gray-100 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
 
-<body
-    class="bg-white dark:bg-bgDark text-gray-900 dark:text-gray-100 antialiased overflow-x-hidden selection:bg-primary selection:text-white">
-
-    <!-- Floating Nav -->
-    <nav
-        class="fixed top-3 left-1/2 -translate-x-1/2 z-50 flex px-4 py-1.5 items-center gap-5 rounded-full border border-gray-200 dark:border-white/10 bg-white/60 dark:bg-black/60 backdrop-blur-xl shadow-xl">
-        <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-gray-400">
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex px-5 py-2 items-center gap-6 rounded-full border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-black/70 backdrop-blur-xl shadow-2xl transition-all">
+        <div class="flex gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
             <a href="#labor" class="hover:text-primary transition">Laboral</a>
-            <a href="#edu" class="hover:text-primary transition">Académico</a>
             <a href="#skills" class="hover:text-primary transition">Skills</a>
             <a href="#projects" class="hover:text-primary transition">Work</a>
+            <a href="#shopping-section" class="hover:text-primary transition hidden md:block">Demo</a>
+            <button onclick="window.print()" class="text-primary font-bold">PDF</button>
         </div>
         <button id="theme-toggle" class="p-1 border-l border-gray-200 dark:border-white/10 pl-4">
-            <svg class="w-3.5 h-3.5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-            </svg>
+            <svg class="w-3.5 h-3.5 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
         </button>
     </nav>
 
-    <main class="max-w-2xl mx-auto px-6 py-16 lg:px-0">
+    <main class="max-w-2xl mx-auto px-6 py-24 lg:px-0">
 
-        <!-- Perfil Head -->
-        <header class="gsap-reveal mb-10 pt-4">
-            <div>
-                <div class="w-18 h-18 rounded-xl shadow-lg">
-                    <img src="https://i.ibb.co/xtctJbMx/images-removebg-preview.png" class="w-15 h-15 object-cover">
+        <header class="reveal mb-16 pt-4">
+            <div class="mb-10">
+                <div class="w-20 h-20 rounded-2xl shadow-2xl overflow-hidden mb-8">
+                    <img src="https://i.ibb.co/xtctJbMx/images-removebg-preview.png" class="w-full h-full object-cover">
                 </div>
-                <h1 class="text-5xl font-bold tracking-tighter italic pt-10">Kevin Nazarit <span
-                        class="text-primary not-italic text-4xl">.</span></h1>
+                <h1 class="text-6xl font-bold tracking-tighter italic">Kevin Nazarit<span class="text-primary not-italic text-5xl">.</span></h1>
             </div>
-            <p class="text-base font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">Desarrollador Web Full Stack &
-                Especialista en SEO</p>
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-[0.3em] mb-4">Full Stack Developer & SEO Specialist</p>
 
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono text-gray-500 border-t border-gray-100 dark:border-white/5 pt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[11px] font-mono text-gray-500 border-t border-gray-100 dark:border-white/5 pt-8">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    <span>CALI, CO — DISPONIBLE REMOTO</span>
+                    <span>CALI, CO — AVAILABLE REMOTE</span>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex gap-4 md:justify-end">
                     <a href="mailto:konlyzxgo@gmail.com" class="underline hover:text-primary">EMAIL</a>
                     <a href="https://linkedin.com/in/konlyzx" class="underline hover:text-primary">LINKEDIN</a>
                     <a href="#" class="underline hover:text-primary">GITHUB</a>
                 </div>
             </div>
-
         </header>
 
-        <!-- Información Laboral -->
-        <section id="labor" class="gsap-reveal mb-12">
-            <h2
-                class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-6 border-b border-gray-100 dark:border-white/5 pb-2">
-                Experiencia Laboral</h2>
-            <div class="space-y-6">
-                <div
-                    class="job-item group border-l-2 border-gray-100 dark:border-white/5 pl-5 relative hover:border-primary transition-colors">
+        <section id="labor" class="reveal mb-16">
+            <div class="flex justify-between items-end mb-8 border-b border-gray-100 dark:border-white/5 pb-2">
+                <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Experiencia Laboral</h2>
+                <button onclick="toggleJobForm()" class="no-print bg-primary/10 text-primary text-[9px] px-3 py-1 rounded-full font-bold hover:bg-primary hover:text-white transition-all">+ AÑADIR</button>
+            </div>
+
+            <div id="job-form" class="hidden mb-10 p-6 bg-gray-50 dark:bg-surface rounded-3xl border border-white/10 space-y-4 shadow-2xl">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" id="new-puesto" placeholder="Puesto" class="bg-transparent border-b border-white/10 py-2 text-sm outline-none placeholder:text-gray-600">
+                    <input type="text" id="new-empresa" placeholder="Empresa" class="bg-transparent border-b border-white/10 py-2 text-sm outline-none placeholder:text-gray-600">
+                </div>
+                <textarea id="new-desc" placeholder="Responsabilidades..." class="w-full bg-transparent border-b border-white/10 py-2 text-sm outline-none h-16 placeholder:text-gray-600"></textarea>
+                <button onclick="saveNewJob()" class="w-full bg-primary text-white py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:brightness-110">Guardar</button>
+            </div>
+
+            <div id="jobs-container" class="space-y-10">
+                <div class="job-item group border-l-2 border-primary pl-6 relative hover:border-white transition-colors">
+                    <button onclick="removeThis(this.parentElement)" class="no-print absolute -right-6 top-0 opacity-0 group-hover:opacity-100 text-red-500">×</button>
                     <span class="text-[10px] font-bold text-primary block mb-1">AGOSTO 2024 — ACTUALIDAD</span>
-                    <h3 class="font-bold text-lg leading-none">Full Stack Developer — <span
-                            class="italic text-gray-500">Hospelia</span></h3>
+                    <h3 class="font-bold text-xl italic">Full Stack Developer — <span class="text-gray-500">Hospelia</span></h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
-                        Desarrollo integral del portal inmobiliario. Implementación de dashboards para usuarios, gestión
-                        de inventario y optimización del Core Web Vitals usando <strong>Next.js</strong> y
-                        <strong>TypeScript</strong>.
+                        Desarrollo integral del portal inmobiliario. Implementación de dashboards para usuarios, gestión de inventario y optimización de Web Vitals usando <strong>Next.js</strong> y <strong>TypeScript</strong>.
                     </p>
                 </div>
-                <div
-                    class="job-item group border-l-2 border-gray-100 dark:border-white/5 pl-5 relative hover:border-gray-500 transition-colors">
+                <div class="job-item group border-l-2 border-gray-300 dark:border-white/10 pl-6 relative hover:border-gray-500 transition-colors">
+                    <button onclick="removeThis(this.parentElement)" class="no-print absolute -right-6 top-0 opacity-0 group-hover:opacity-100 text-red-500">×</button>
                     <span class="text-[10px] font-bold text-gray-400 block mb-1">2023 — 2024</span>
-                    <h3 class="font-bold text-lg leading-none">Digital Marketing & SEO — <span
-                            class="italic text-gray-500">Freelance</span></h3>
+                    <h3 class="font-bold text-xl italic">Digital Marketing & SEO — <span class="text-gray-500">Freelance</span></h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
-                        Automatización de embudos con GoHighLevel e integración de Meta API para la gestión inteligente
-                        de leads. Auditoría técnica para posicionamiento orgánico.
+                        Automatización de embudos con GoHighLevel e integración de Meta API para la gestión inteligente de leads. Auditoría técnica para posicionamiento orgánico.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Habilidades & Idiomas -->
-        <section id="skills" class="gsap-reveal mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section id="skills" class="reveal mb-16 grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-                <h2
-                    class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
-                    Technical Skills</h2>
-                <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded text-primary">JAVASCRIPT (ES6+)</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded text-primary">TYPESCRIPT</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">NEXT.JS</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">REACT</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">NODE.JS</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded text-green-500">MONGODB</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">GIT</span>
-                    <span class="bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded">TAILWIND CSS</span>
+                <div class="flex justify-between items-center mb-6 border-b border-gray-100 dark:border-white/5 pb-2">
+                    <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Stack Tecnológico</h2>
+                    <div class="no-print flex gap-1">
+                        <input type="text" id="skill-in" placeholder="+" class="w-10 bg-transparent text-[10px] text-primary outline-none text-right placeholder:text-gray-600">
+                        <button onclick="addSkill()" class="text-primary text-sm font-bold hover:scale-110 transition-transform">+</button>
+                    </div>
+                </div>
+                <div id="skills-container" class="flex flex-wrap gap-2 font-mono text-[10px]">
+                    <div class="skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5"><span>JAVASCRIPT</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button></div>
+                    <div class="skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5"><span>TYPESCRIPT</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button></div>
+                    <div class="skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5"><span>NEXT.JS</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button></div>
+                    <div class="skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5"><span>REACT</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button></div>
+                    <div class="skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5"><span class="text-green-500">MONGODB</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button></div>
+                    <div class="skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5"><span>TAILWIND</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button></div>
                 </div>
             </div>
             <div>
-                <h2
-                    class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
-                    Idiomas</h2>
-                <ul class="text-xs space-y-2">
-                    <li class="flex justify-between"><span>Español</span> <span
-                            class="font-bold text-gray-400 uppercase italic text-[10px]">Nativo</span></li>
-                    <li class="flex justify-between"><span>Inglés</span> <span
-                            class="font-bold text-primary uppercase italic text-[10px]">Técnico / B1</span></li>
+                <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">Idiomas</h2>
+                <ul class="text-xs space-y-3">
+                    <li class="flex justify-between"><span>Español</span> <span class="font-bold text-gray-400 italic">Nativo</span></li>
+                    <li class="flex justify-between"><span>Inglés</span> <span class="font-bold text-primary italic">B1+ / Técnico</span></li>
                 </ul>
             </div>
         </section>
 
-        <!-- Información Académica -->
-        <section id="edu" class="gsap-reveal mb-12">
-            <h2
-                class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 border-b border-gray-100 dark:border-white/5 pb-2">
-                Educación</h2>
-            <div class="flex flex-col md:flex-row md:items-center justify-between group">
+        <section id="edu" class="reveal mb-16">
+            <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-6 border-b border-gray-100 dark:border-white/5 pb-2">Educación</h2>
+            <div class="group flex justify-between items-center">
                 <div>
-                    <h3 class="font-bold text-gray-900 dark:text-white">Tecnología en Desarrollo de Software</h3>
-                    <p class="text-sm text-gray-500 italic">En curso — Instituto Superior / Universitario</p>
+                    <h3 class="font-bold text-xl italic">Tecnología en Desarrollo de Software</h3>
+                    <p class="text-sm text-gray-500 mt-1">Estudiante Activo — Universitario</p>
                 </div>
-                <div
-                    class="text-right font-mono text-[10px] text-primary opacity-0 group-hover:opacity-100 transition-opacity uppercase">
-                    Estudiante Activo
+                <div class="text-[10px] font-mono text-primary opacity-0 group-hover:opacity-100 transition-opacity uppercase hidden md:block">En Curso</div>
+            </div>
+        </section>
+
+        <section id="shopping-section" class="reveal mb-20 bg-gray-50 dark:bg-surface/50 p-8 rounded-3xl border border-white/5 overflow-hidden relative">
+            <div class="absolute top-0 right-0 p-4 opacity-20 text-[10px] font-mono rotate-90 origin-top-right">INTERACTIVE DEMO</div>
+            
+            <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-8 border-b border-gray-100 dark:border-white/5 pb-2">
+                JavaScript Component / Shopping Basket
+            </h2>
+        
+            <div class="shopping-container max-w-xl mx-auto">
+                <header class="text-center mb-8">
+                    <h1 class="text-2xl tracking-[0.3em] font-light uppercase">Shopping List</h1>
+                    <p id="counter" class="text-[9px] tracking-widest text-gray-500 mt-2">0 ARTÍCULOS</p>
+                </header>
+        
+                <div class="space-y-8">
+                    <div class="flex flex-col sm:flex-row gap-8 items-start">
+                        
+                        <div class="w-full sm:w-32 h-44 bg-gray-200 dark:bg-black/30 overflow-hidden flex-shrink-0 border border-gray-200 dark:border-white/10 rounded-lg">
+                            <img id="mainPreview" src="https://img.freepik.com/vector-premium/iconos-tiendas-tiendas-configurados-estilo-diseno-plano-ilustracion-vectorial_498048-1862.jpg" 
+                                 class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
+                        </div>
+        
+                        <div class="flex-1 w-full space-y-6">
+                            <div class="input-group relative">
+                                <label class="text-[9px] uppercase tracking-widest text-gray-500 mb-2 block">Producto</label>
+                                
+                                <button id="dropdownBtn" onclick="toggleDropdown()" class="w-full text-left py-2 border-b border-gray-300 dark:border-white/20 text-sm uppercase cursor-pointer flex justify-between items-center bg-transparent hover:border-primary transition-colors">
+                                    <span id="dropdownText">Selecciona un artículo</span>
+                                    <span class="text-[8px] opacity-50">▼</span>
+                                </button>
+                                
+                                <div id="dropdownContent" class="hidden absolute z-50 w-full bg-white dark:bg-surface border border-gray-200 dark:border-white/10 mt-1 max-h-48 overflow-y-auto shadow-2xl rounded-xl">
+                                    <div onclick="selectItem('Camiseta Blanca', 'https://tottoco.vtexassets.com/arquivos/ids/564947/RA46644-2417-B01XS_2.jpg')" class="p-3 hover:bg-gray-100 dark:hover:bg-white/10 cursor-pointer text-xs uppercase flex items-center gap-2">
+                                        <div class="w-4 h-4 rounded-full bg-white border border-gray-300"></div> Camiseta Blanca
+                                    </div>
+                                    <div onclick="selectItem('Vaqueros Slim', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVhkkicb6EP9lyjybf7PgrzgcPC8ZRq_Ji6Q&s')" class="p-3 hover:bg-gray-100 dark:hover:bg-white/10 cursor-pointer text-xs uppercase flex items-center gap-2">
+                                        <div class="w-4 h-4 rounded-full bg-blue-900"></div> Vaqueros Slim
+                                    </div>
+                                    <div onclick="selectItem('Kevin Hart', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFv5MM_0Yr_eSdkGQTsuOOMC8hh8a5_Pc30Q&s')" class="p-3 hover:bg-gray-100 dark:hover:bg-white/10 cursor-pointer text-xs uppercase flex items-center gap-2">
+                                        <div class="w-4 h-4 rounded-full bg-black border border-white/20"></div> Kevin Hart
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="flex gap-6">
+                                <div class="w-20">
+                                    <label class="text-[9px] uppercase tracking-widest text-gray-500 mb-2 block">Cant.</label>
+                                    <input type="number" id="itemQty" value="1" min="1" 
+                                           class="bg-transparent border-b border-gray-300 dark:border-white/20 py-2 w-full outline-none text-sm text-center">
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-[9px] uppercase tracking-widest text-gray-500 mb-2 block">Categoría</label>
+                                    <select id="itemCategory" class="bg-transparent border-b border-gray-300 dark:border-white/20 py-2 w-full outline-none text-sm cursor-pointer appearance-none uppercase rounded-none">
+                                        <option value="WOMAN" class="bg-white dark:bg-black text-black dark:text-white">WOMAN</option>
+                                        <option value="MAN" class="bg-white dark:bg-black text-black dark:text-white">MAN</option>
+                                        <option value="UNISEX" class="bg-white dark:bg-black text-black dark:text-white">UNISEX</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <button onclick="addToBasket()" class="w-full bg-black dark:bg-white text-white dark:text-black py-4 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-primary hover:text-white dark:hover:bg-primary transition-all rounded-lg shadow-lg">
+                        Añadir a la cesta
+                    </button>
+        
+                    <div id="shoppingList" class="mt-8 space-y-2 border-t border-gray-200 dark:border-white/5 pt-8 min-h-[50px]">
+                        </div>
                 </div>
             </div>
         </section>
 
-    <section>
-    <!-- Referencia de estilos (Verifica que la ruta sea correcta) -->
-    <link rel="stylesheet" href="../shopping-list/css/styles.css">
-
-   <!-- SHOPPING LIST SECTION -->
-<section id="shopping-section" class="gsap-reveal mb-20">
-    <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-10 border-b border-gray-100 dark:border-white/5 pb-2">
-        Interactive Component / Shopping List
-    </h2>
-
-    <div class="shopping-container max-w-xl mx-auto">
-        <header class="text-center mb-10">
-            <h1 class="text-2xl tracking-[0.3em] font-light uppercase">Shopping List</h1>
-            <p id="counter" class="text-[9px] tracking-widest text-gray-500 mt-2">0 ARTÍCULOS</p>
-        </header>
-
-        <form id="shopForm" class="space-y-8">
-            <!-- Bloque superior: Imagen + Selectores -->
-            <div class="flex flex-col sm:flex-row gap-8 items-start">
-                
-                <!-- Preview de Imagen Estilo Zara -->
-                <div class="w-full sm:w-32 h-44 bg-gray-100 dark:bg-white/5 overflow-hidden flex-shrink-0 border border-gray-200 dark:border-white/10">
-                    <img id="mainPreview" src="https://img.freepik.com/vector-premium/iconos-tiendas-tiendas-configurados-estilo-diseno-plano-ilustracion-vectorial_498048-1862.jpg?w=740" 
-                         class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
-                </div>
-
-                <!-- Columna de Selección -->
-                <div class="flex-1 w-full space-y-6">
-                    <div class="input-group">
-                        <label class="text-[9px] uppercase tracking-widest text-gray-500 mb-2 block">Producto</label>
-                        <div class="custom-select relative" id="productDropdown">
-                            <div class="select-selected py-2 border-b border-gray-200 dark:border-white/20 text-sm uppercase cursor-pointer flex justify-between items-center">
-                                Selecciona un artículo
-                                <span class="text-[8px]">▼</span>
-                            </div>
-                            <div class="select-items select-hide absolute z-50 w-full bg-white dark:bg-bgDark border border-gray-200 dark:border-white/10 mt-1 max-h-48 overflow-y-auto shadow-2xl">
-                                <div data-value="Camiseta Blanca" data-img="https://tottoco.vtexassets.com/arquivos/ids/564947/RA46644-2417-B01XS_2.jpg?v=638570225954670000">Camiseta Blanca</div>
-                                <div data-value="Vaqueros Slim" data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVhkkicb6EP9lyjybf7PgrzgcPC8ZRq_Ji6Q&s">Vaqueros Slim</div>
-                                <div data-value="Kevin Hart" data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFv5MM_0Yr_eSdkGQTsuOOMC8hh8a5_Pc30Q&s">Kevin Hart (Limited)</div>
-                                <div data-value="Botas Piel" data-img="https://static.zara.net/photos///2023/I/1/1/p/2012/210/040/2/w/432/2012210040_1_1_1.jpg">Botas Piel</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="itemName" required>
-                    </div>
-
-                    <div class="flex gap-6">
-                        <div class="w-20">
-                            <label class="text-[9px] uppercase tracking-widest text-gray-500 mb-2 block">Cant.</label>
-                            <input type="number" id="itemQty" value="1" min="1" 
-                                   class="bg-transparent border-b border-gray-200 dark:border-white/20 py-2 w-full outline-none text-sm">
-                        </div>
-                        <div class="flex-1">
-                            <label class="text-[9px] uppercase tracking-widest text-gray-500 mb-2 block">Categoría</label>
-                            <select id="itemCategory" class="bg-transparent border-b border-gray-200 dark:border-white/20 py-2 w-full outline-none text-sm cursor-pointer appearance-none uppercase">
-                                <option value="WOMAN" class="bg-black text-white">WOMAN</option>
-                                <option value="MAN" class="bg-black text-white">MAN</option>
-                                <option value="UNISEX" class="bg-black text-white">UNISEX</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" class="w-full bg-black dark:bg-white text-white dark:text-black py-4 text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-primary hover:text-white dark:hover:bg-primary transition-all">
-                Añadir a la cesta
-            </button>
-        </form>
-
-        <!-- Lista de Salida -->
-        <div id="shoppingList" class="mt-12 space-y-4 border-t border-gray-100 dark:border-white/5 pt-10">
-            <!-- Dinámico -->
-        </div>
-    </div>
-</section>
-
-    <!-- Script (Asegúrate de que la ruta coincida con tu carpeta) -->
-    <script src="../shopping-list/js/script.js"></script>
-</section>
-
-        <section id="projects" class="gsap-reveal mb-12 cursor-pointer">
-            <h2
-                class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-6 border-b border-gray-100 dark:border-white/5 pb-2">
-                Portafolio Seleccionado</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <a href="https://www.insightstream.cloud/" target="_blank"
-                    class="project-card group block bg-gray-50 dark:bg-white/5 rounded-2xl p-3 border border-transparent hover:border-white/10 transition-all">
-                    <img src="https://kolzdibjwinkjuuwwyir.supabase.co/storage/v1/object/public/sss/71shots_so.png"
-                        alt="Insightstream"
-                        class="h-32 w-full object-cover rounded-xl mb-3 grayscale group-hover:grayscale-0 transition-all">
-                    <h4 class="font-bold text-sm italic uppercase">INSIGHTSTREAM <span
-                            class="text-gray-500 font-normal">.CLOUD</span></h4>
+        <section id="projects" class="reveal mb-20">
+            <h2 class="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-6 border-b border-gray-100 dark:border-white/5 pb-2">Selected Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="https://www.insightstream.cloud/" target="_blank" class="group block p-4 bg-gray-50 dark:bg-surface rounded-2xl border border-white/5 hover:border-primary/50 transition-all">
+                    <img src="https://kolzdibjwinkjuuwwyir.supabase.co/storage/v1/object/public/sss/71shots_so.png" class="h-32 w-full object-cover rounded-xl mb-4 grayscale group-hover:grayscale-0 transition-all">
+                    <h4 class="font-bold text-sm tracking-widest">INSIGHTSTREAM <span class="text-primary font-normal text-xs">.CLOUD</span></h4>
                 </a>
-
-                <a href="https://hospelia.co" target="_blank"
-                    class="project-card group block bg-gray-50 dark:bg-white/5 rounded-2xl p-3 border border-transparent hover:border-white/10 transition-all">
-                    <img src="https://konlyzx.vercel.app/images/work/hospelia.avif" alt="Hospelia"
-                        class="h-32 w-full object-cover rounded-xl mb-3 grayscale group-hover:grayscale-0 transition-all">
-                    <h4 class="font-bold text-sm italic uppercase">HOSPELIA <span
-                            class="text-gray-500 font-normal">.CO</span></h4>
+                <a href="https://hospelia.co" target="_blank" class="group block p-4 bg-gray-50 dark:bg-surface rounded-2xl border border-white/5 hover:border-primary/50 transition-all">
+                    <img src="https://konlyzx.vercel.app/images/work/hospelia.avif" class="h-32 w-full object-cover rounded-xl mb-4 grayscale group-hover:grayscale-0 transition-all">
+                    <h4 class="font-bold text-sm tracking-widest">HOSPELIA <span class="text-primary font-normal text-xs">.CO</span></h4>
                 </a>
             </div>
         </section>
 
-        <footer class="gsap-reveal pt-10 border-t border-gray-100 dark:border-white/5">
-            <p class="text-[9px] font-black uppercase tracking-[0.3em] text-center opacity-30 italic">Automate or die
-                &bull; konlyzx &bull; 2026</p>
+        <footer class="reveal border-t border-white/5 pt-10 text-center">
+            <p class="text-[9px] font-black uppercase tracking-[0.5em] text-gray-500 opacity-50 italic">Automate or die &bull; Konlyzx &bull; 2026</p>
         </footer>
-
     </main>
 
-    <script src="../js/script.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- Revelación Inicial ---
+        gsap.to(".reveal", { opacity: 1, y: 0, stagger: 0.1, duration: 1, ease: "expo.out" });
+
+        // --- Lógica de Skills ---
+        function addSkill() {
+            const val = document.getElementById('skill-in').value.trim().toUpperCase();
+            if(!val) return;
+            const container = document.getElementById('skills-container');
+            const div = document.createElement('div');
+            div.className = "skill-tag bg-gray-100 dark:bg-white/5 px-3 py-1.5 rounded-lg flex items-center gap-2 group border border-white/5 opacity-0";
+            div.innerHTML = `<span>${val}</span><button onclick="removeThis(this.parentElement)" class="no-print hidden group-hover:block text-red-500">×</button>`;
+            container.appendChild(div);
+            gsap.to(div, { opacity: 1, duration: 0.5 });
+            document.getElementById('skill-in').value = "";
+        }
+
+        // --- Lógica Job ---
+        function toggleJobForm() {
+            const form = document.getElementById('job-form');
+            form.classList.toggle('hidden');
+        }
+
+        function saveNewJob() {
+            const puesto = document.getElementById('new-puesto').value;
+            const empresa = document.getElementById('new-empresa').value;
+            const desc = document.getElementById('new-desc').value;
+
+            if(!puesto || !empresa) return;
+
+            const container = document.getElementById('jobs-container');
+            const div = document.createElement('div');
+            div.className = "job-item group border-l-2 border-primary pl-6 relative hover:border-white transition-colors opacity-0";
+            div.innerHTML = `
+                <button onclick="removeThis(this.parentElement)" class="no-print absolute -right-6 top-0 opacity-0 group-hover:opacity-100 text-red-500">×</button>
+                <span class="text-[10px] font-bold text-primary block mb-1">ACTUALIDAD</span>
+                <h3 class="font-bold text-xl italic">${puesto} — <span class="text-gray-500">${empresa}</span></h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">${desc}</p>
+            `;
+            container.prepend(div);
+            gsap.to(div, { opacity: 1, duration: 0.8 });
+            toggleJobForm();
+            // Limpiar inputs
+            document.getElementById('new-puesto').value = "";
+            document.getElementById('new-empresa').value = "";
+            document.getElementById('new-desc').value = "";
+        }
+
+        function removeThis(el) {
+            gsap.to(el, { opacity: 0, height: 0, margin: 0, padding: 0, duration: 0.3, onComplete: () => el.remove() });
+        }
+
+        // --- SHOPPING LIST LOGIC (Nuevo Integrado) ---
+        let selectedProduct = null;
+        let cartCount = 0;
+
+        function toggleDropdown() {
+            document.getElementById("dropdownContent").classList.toggle("hidden");
+        }
+
+        function selectItem(name, img) {
+            selectedProduct = name;
+            document.getElementById("dropdownText").innerText = name;
+            document.getElementById("mainPreview").src = img;
+            document.getElementById("dropdownContent").classList.add("hidden");
+        }
+
+        function addToBasket() {
+            if (!selectedProduct) {
+                alert("Por favor selecciona un producto primero.");
+                return;
+            }
+            
+            const qty = document.getElementById("itemQty").value;
+            const cat = document.getElementById("itemCategory").value;
+            const list = document.getElementById("shoppingList");
+            const counter = document.getElementById("counter");
+
+            // Crear elemento visual
+            const item = document.createElement("div");
+            item.className = "flex justify-between items-center p-3 bg-white dark:bg-white/5 rounded-lg border border-gray-100 dark:border-white/5 opacity-0 transform translate-y-4";
+            item.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="text-[10px] font-black bg-gray-200 dark:bg-white/20 w-6 h-6 flex items-center justify-center rounded-full">${qty}</div>
+                    <div class="flex flex-col">
+                        <span class="text-xs font-bold uppercase">${selectedProduct}</span>
+                        <span class="text-[9px] text-gray-400 tracking-widest">${cat}</span>
+                    </div>
+                </div>
+                <button onclick="removeBasketItem(this)" class="text-[10px] text-red-400 hover:text-red-500 font-bold uppercase">Eliminar</button>
+            `;
+
+            list.prepend(item);
+            
+            // Animación de entrada
+            gsap.to(item, { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" });
+
+            // Actualizar contador
+            cartCount += parseInt(qty);
+            counter.innerText = `${cartCount} ARTÍCULOS`;
+            counter.classList.add("text-primary");
+            setTimeout(() => counter.classList.remove("text-primary"), 300);
+        }
+
+        function removeBasketItem(btn) {
+            const item = btn.parentElement;
+            const qty = parseInt(item.querySelector("div > div").innerText);
+            
+            gsap.to(item, { 
+                opacity: 0, 
+                x: 50, 
+                duration: 0.3, 
+                onComplete: () => {
+                    item.remove();
+                    cartCount -= qty;
+                    document.getElementById("counter").innerText = `${cartCount} ARTÍCULOS`;
+                } 
+            });
+        }
+
+        // Cerrar dropdown si click fuera
+        window.onclick = function(event) {
+            if (!event.target.matches('#dropdownBtn') && !event.target.matches('#dropdownBtn *')) {
+                const dropdowns = document.getElementsByClassName("hidden");
+                const openDropdown = document.getElementById("dropdownContent");
+                if (!openDropdown.classList.contains('hidden')) {
+                    openDropdown.classList.add('hidden');
+                }
+            }
+        }
+
+        // --- Theme Toggle ---
+        const toggleBtn = document.getElementById('theme-toggle');
+        toggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
 </body>
-
-
 </html>
